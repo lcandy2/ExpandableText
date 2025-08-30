@@ -36,7 +36,7 @@ public struct ExpandableText: View {
     
     private let text: String
     internal var font: Font = .body
-    internal var color: Color = .primary
+    // internal var color: Color = .primary
     internal var lineLimit: Int = 3
     internal var moreButtonText: String = "more"
     internal var moreButtonFont: Font?
@@ -105,7 +105,7 @@ public struct ExpandableText: View {
                 : text
         ))
         .font(font)
-        .foregroundColor(color)
+        // .foregroundColor(color)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
