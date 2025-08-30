@@ -122,7 +122,11 @@ private extension View {
     @ViewBuilder
     func applyForegroundColorIfNeeded(_ color: Color?) -> some View {
         if let color = color {
-            self.foregroundColor(color)
+            if #available(iOS 15.0, *) {
+                self.foregroundStyle(color)
+            } else {
+                self.foregroundColor(color)
+            }
         } else {
             self
         }
