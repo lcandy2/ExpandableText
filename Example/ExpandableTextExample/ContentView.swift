@@ -40,6 +40,18 @@ struct ContentView: View {
                 ExpandableText(String(localized: "EXAMPLE_LOCALIZED_TEXT_KEY"))
                     .border(.red)
                 
+                ExpandableText(loremIpsum)
+                    .foregroundStyle()
+                    .foregroundStyle(.white)
+                    .background(.blue)
+                    .border(.red)
+                
+                ExpandableText(loremIpsum)
+                    .foregroundStyle()
+                    .foregroundStyle(.green)
+                    .lineLimit(2)
+                    .border(.red)
+                
                 Spacer()
             }
             .padding()

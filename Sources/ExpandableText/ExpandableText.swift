@@ -36,7 +36,7 @@ public struct ExpandableText: View {
     
     private let text: String
     internal var font: Font = .body
-    // internal var color: Color = .primary
+    internal var color: Color? = nil
     internal var lineLimit: Int = 3
     internal var moreButtonText: String = "more"
     internal var moreButtonFont: Font?
@@ -105,7 +105,7 @@ public struct ExpandableText: View {
                 : text
         ))
         .font(font)
-        // .foregroundColor(color)
+        .applyForegroundColorIfNeeded(color)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
@@ -115,5 +115,16 @@ public struct ExpandableText: View {
     
     private var textTrimmingDoubleNewlines: String {
         text.replacingOccurrences(of: #"\n\s*\n"#, with: "\n", options: .regularExpression)
+    }
+}
+
+private extension View {
+    @ViewBuilder
+    func applyForegroundColorIfNeeded(_ color: Color?) -> some View {
+        if let color = color {
+            self.foregroundColor(color)
+        } else {
+            self
+        }
     }
 }

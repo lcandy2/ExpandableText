@@ -33,6 +33,17 @@ public extension ExpandableText {
     }
     
     /**
+     Enables the use of SwiftUI's foregroundStyle modifier by clearing the internal color.
+     This allows external foregroundStyle modifiers to be applied directly to the ExpandableText.
+     - Returns: A new `ExpandableText` instance that supports external foregroundStyle modifiers.
+     */
+    func foregroundStyle() -> Self {
+        var copy = self
+        copy.color = nil
+        return copy
+    }
+    
+    /**
      Sets the maximum number of lines to use for rendering the text in the `ExpandableText` instance.
      - Parameter limit: The maximum number of lines to use for rendering the text. Defaults to `3`
      - Returns: A new `ExpandableText` instance with the specified line limit applied.
